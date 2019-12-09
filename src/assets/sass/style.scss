@@ -19,6 +19,12 @@ body {
   }
 }
 
-.battle-field{
-  border: 1px solid $green;
+.table-bordered {
+  color: $dark;
+  text-align: center;
+  font-weight: 500;
+
+  td {
+    border-color: $green;
+  }
 }
