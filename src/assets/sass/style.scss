@@ -1,4 +1,24 @@
-h1 {
-  color: deeppink;
-  font-style: italic;
+@import '~bootstrap/scss/bootstrap';
+
+$dark: #2a363b;
+$red-primary: #e84a5f;
+$red-secondary: #ff847c;
+$beige: #feceab;
+$green: #99b898;
+
+body {
+  background-color: $green;
+}
+
+.header {
+  padding: 10px;
+  background-color: $dark;
+
+  &__title {
+    color: #fff;
+  }
+}
+
+.battle-field{
+  border: 1px solid $beige;
 }
