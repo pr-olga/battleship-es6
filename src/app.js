@@ -1,2 +1,8 @@
+'use srtict'
+
 require('./assets/sass/style.css')
-console.log('Hello World!')
+
+const sum = (a, b) => a + b
+
+const res = sum(9, 5)
+console.log(res)
