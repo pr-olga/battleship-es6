@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/pr-olga/battleship-es6#readme",
   "devDependencies": {
+    "css-loader": "3.2.1",
+    "style-loader": "1.0.1",
     "webpack": "4.41.2",
     "webpack-cli": "3.3.10"
   }
