@@ -1,0 +1,22 @@
+{
+  "name": "battleship-es6",
+  "version": "1.0.0",
+  "description": "battleship, plain es6",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pr-olga/battleship-es6.git"
+  },
+  "keywords": [
+    "es6"
+  ],
+  "author": "pr-olga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pr-olga/battleship-es6/issues"
+  },
+  "homepage": "https://github.com/pr-olga/battleship-es6#readme"
+}
