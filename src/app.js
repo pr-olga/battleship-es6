@@ -1,6 +1,6 @@
 'use srtict'
 
-require('./assets/sass/style.css')
+require('./assets/sass/style.scss')
 
 const sum = (a, b) => a + b
 
