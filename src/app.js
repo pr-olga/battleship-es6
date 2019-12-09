@@ -1,8 +1,6 @@
-'use srtict'
+import BattleShip from './Model/Ships/Battleship.js'
 
 require('./assets/sass/style.scss')
 
-const sum = (a, b) => a + b
-
-const res = sum(9, 5)
-console.log(res)
+const BattleShip1 = new BattleShip(1, 4)
+BattleShip1.createShip()
