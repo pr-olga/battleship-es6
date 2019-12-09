@@ -4,6 +4,7 @@
   "description": "battleship, plain es6",
   "main": "app.js",
   "scripts": {
+    "start": "webpack-dev-server --entry ./src/app.js --output-filename ./dist/bundle.js",
     "build": "webpack"
   },
   "repository": {
@@ -23,6 +24,7 @@
     "css-loader": "3.2.1",
     "style-loader": "1.0.1",
     "webpack": "4.41.2",
-    "webpack-cli": "3.3.10"
+    "webpack-cli": "3.3.10",
+    "webpack-dev-server": "3.9.0"
   }
 }
