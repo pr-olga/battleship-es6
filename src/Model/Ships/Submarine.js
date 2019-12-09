@@ -2,10 +2,10 @@
 
 import Ship from '../Ship'
 
-export default class Battleship extends Ship {
+export default class Submarine extends Ship {
   constructor (amount, size) {
     super(amount, size)
-    this.name = 'Battleship'
+    this.name = 'Submarine'
 
     super.createShip()
   }

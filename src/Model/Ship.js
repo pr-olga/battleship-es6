@@ -1,13 +1,13 @@
 'use strict'
 
 export default class Ship {
-  constructor (amount, numberCols) {
+  constructor (amount, size) {
     this.name = 'Ship'
     this.amount = amount
-    this.numberCols = numberCols
+    this.size = size
   }
 
   createShip () {
-    console.log(`A new Ship is on the water: ${this.name}, amount: ${this.amount}, numberCols: ${this.numberCols}`)
+    console.log(`A new Ship(s) is(are) on the water: ${this.name}, amount: ${this.amount}, numberCols: ${this.size}`)
   }
 }
