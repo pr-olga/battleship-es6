@@ -1,4 +1,4 @@
-import ShipFactory from './Model/ShipFactory'
+import ShipFactory from './Model/Ship/ShipFactory'
 
 require('./assets/sass/style.scss')
 
