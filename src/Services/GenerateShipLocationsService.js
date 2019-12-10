@@ -3,7 +3,7 @@
 import ShipFactory from '../Model/Ship/ShipFactory'
 import Field from '../Model/Field/Field'
 
-export default class CreateShipService {
+export default class GenerateShipLocationService {
   constructor () {
     this.flotilla = this._instantiateShips()
     this.positions = this._generatePositions()
