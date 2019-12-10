@@ -1,14 +1,12 @@
-import BattleShip from './Model/Ships/Battleship.js'
-import Cruiser from './Model/Ships/Cruiser.js'
-import Destroyer from './Model/Ships/Destroyer.js'
-import Submarine from './Model/Ships/Submarine.js'
+import ShipFactory from './Model/ShipFactory'
 
 require('./assets/sass/style.scss')
 
-const battleship = new BattleShip()
-const cruiser = new Cruiser()
-const destroyer = new Destroyer()
-const submarine = new Submarine()
+const factory = new ShipFactory()
+const battleship = factory.createShips('Battleship')
+const cruiser = factory.createShips('Cruiser')
+const destroyer = factory.createShips('Destroyer')
+const submarine = factory.createShips('Submarine')
 
 const setGame = [battleship, cruiser, destroyer, submarine]
 
