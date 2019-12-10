@@ -50,7 +50,7 @@ export default class Field {
  */
   _combineTwoArraysToObject (columns, rows) {
     return rows.reduce(function (result, field, index) {
-      result.push({ begin: [columns[index], field] })
+      result.push({ begin: columns[index] + '' + field })
       return result
     }, [])
   }
