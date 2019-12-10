@@ -3,9 +3,11 @@
 import Ship from '../Ship'
 
 export default class Destroyer extends Ship {
-  constructor (amount, size) {
-    super(amount, size)
+  constructor () {
+    super()
     this.name = 'Destroyer'
+    this.amount = 3
+    this.size = 2
 
     super.createShip()
   }

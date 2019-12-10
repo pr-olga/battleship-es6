@@ -1,10 +1,10 @@
 'use strict'
 
 export default class Ship {
-  constructor (amount, size) {
+  constructor () {
     this.name = 'Ship'
-    this.amount = amount
-    this.size = size
+    this.amount = 0
+    this.size = 0
   }
 
   createShip () {

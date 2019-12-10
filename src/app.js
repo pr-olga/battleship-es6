@@ -5,10 +5,10 @@ import Submarine from './Model/Ships/Submarine.js'
 
 require('./assets/sass/style.scss')
 
-const battleship = new BattleShip(1, 4)
-const cruiser = new Cruiser(2, 3)
-const destroyer = new Destroyer(3, 2)
-const submarine = new Submarine(4, 1)
+const battleship = new BattleShip()
+const cruiser = new Cruiser()
+const destroyer = new Destroyer()
+const submarine = new Submarine()
 
 const setGame = [battleship, cruiser, destroyer, submarine]
 
