@@ -2,11 +2,10 @@
 
 export default class Field {
   constructor () {
-    this.field = []
     this.amountOfShips = 10
     this.row = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     this.col = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    this.begin = []
+    this.positions = []
   }
 
   /**
@@ -19,9 +18,10 @@ export default class Field {
     const columns = this._shuffle(this.row)
     const rows = this._shuffle(this.col)
 
-    this.begin = this._combineTwoArraysToObject(columns, rows)
+    this.positions = this._combineTwoArraysToObject(columns, rows)
+
     console.log('Positions are planned!')
-    return this.begin
+    return this.positions
   }
 
   /**
@@ -50,7 +50,7 @@ export default class Field {
  */
   _combineTwoArraysToObject (columns, rows) {
     return rows.reduce(function (result, field, index) {
-      result.push({ begin: columns[index] + '' + field })
+      result.push({ begin: [columns[index], field], end: [] })
       return result
     }, [])
   }

@@ -12,9 +12,17 @@ const submarine = factory.createShips('Submarine')
 const flotilla = [battleship, cruiser, destroyer, submarine]
 const positions = new Field().generatePositions()
 
+// assign begin and end positions
 for (let i = 0; i <= flotilla.length; i++) {
-  for (let position in flotilla[i]) {
+  for (const position in flotilla[i]) {
     flotilla[i].position = positions[i]
+    flotilla[i].position.end[0] = positions[i].begin[0] - flotilla[i].size
+
+    if (flotilla[i].position.end[0] < 0) {
+      flotilla[i].position.end[0] = positions[i].begin[0] + flotilla[i].size
+    }
+
+    flotilla[i].position.end[1] = positions[i].begin[1]
   }
 }
 
