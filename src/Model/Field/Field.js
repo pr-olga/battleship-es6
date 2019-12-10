@@ -20,6 +20,7 @@ export default class Field {
     const rows = this._shuffle(this.col)
 
     this.begin = this._combineTwoArraysToObject(columns, rows)
+    console.log('Positions are planned!')
     return this.begin
   }
 

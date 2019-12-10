@@ -5,6 +5,7 @@ export default class Ship {
     this.name = 'Ship'
     this.amount = 0
     this.size = 0
+    this.position = []
   }
 
   createShip () {

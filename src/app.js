@@ -9,9 +9,15 @@ const cruiser = factory.createShips('Cruiser')
 const destroyer = factory.createShips('Destroyer')
 const submarine = factory.createShips('Submarine')
 
+const positions = new Field().generatePositions()
+
+battleship.position = positions[0]
+cruiser.position = positions[1]
+destroyer.position = positions[2]
+submarine.position = positions[3]
+
 const setGame = [battleship, cruiser, destroyer, submarine]
+console.log(setGame)
+console.log('Ships moved to their positions!')
 
-setGame ? console.log('-> All ships are on water! Fiiiiiire!!!') : console.log('Something went wrong')
-
-const field = new Field()
-console.log(field.generatePositions())
+setGame ? console.log('-> Everything is prepeared! Fiiiiiire!!!') : console.log('Something went wrong')
