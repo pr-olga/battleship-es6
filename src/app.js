@@ -9,12 +9,14 @@ const cruiser = factory.createShips('Cruiser')
 const destroyer = factory.createShips('Destroyer')
 const submarine = factory.createShips('Submarine')
 
+const flotilla = [battleship, cruiser, destroyer, submarine]
 const positions = new Field().generatePositions()
 
-battleship.position = positions[0]
-cruiser.position = positions[1]
-destroyer.position = positions[2]
-submarine.position = positions[3]
+for (let i = 0; i <= flotilla.length; i++) {
+  for (let position in flotilla[i]) {
+    flotilla[i].position = positions[i]
+  }
+}
 
 const setGame = [battleship, cruiser, destroyer, submarine]
 console.log(setGame)
