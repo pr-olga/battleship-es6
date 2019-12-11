@@ -21,15 +21,27 @@ export default class GenerateShipLocationService {
           const posBeginSesond = positions[i].begin[1]
 
           flotilla[i].position = positions[i]
-          flotilla[i].position.end[0] = posBeginFirst - flotilla[i].size
+          flotilla[i].position.end[0] = posBeginFirst - flotilla[i].size + 1
 
           if (flotilla[i].position.end[0] < 1) {
-            flotilla[i].position.end[0] = posBeginFirst + flotilla[i].size
+            flotilla[i].position.end[0] = posBeginFirst + flotilla[i].size - 1
           }
 
           // convert to one number
           flotilla[i].position.begin = '' + posBeginFirst + posBeginSesond
           flotilla[i].position.end = '' + flotilla[i].position.end[0] + posBeginSesond
+
+          // add array of all cells
+          flotilla[i].position.arrAll = []
+          if (posBeginFirst - flotilla[i].size + 1 > 1) {
+            for (let k = 0; k < flotilla[i].size; k++) {
+              flotilla[i].position.arrAll.push('' + (posBeginFirst - k) + posBeginSesond)
+            }
+          } else {
+            for (let k = 0; k < flotilla[i].size; k++) {
+              flotilla[i].position.arrAll.push('' + (posBeginFirst + k) + posBeginSesond)
+            }
+          }
         }
       }
     }
