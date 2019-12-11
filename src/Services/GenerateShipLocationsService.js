@@ -19,11 +19,14 @@ export default class GenerateShipLocationService {
         flotilla[i].position = positions[i]
         flotilla[i].position.end[0] = positions[i].begin[0] - flotilla[i].size
 
-        if (flotilla[i].position.end[0] < 0) {
+        if (flotilla[i].position.end[0] < 1) {
           flotilla[i].position.end[0] = positions[i].begin[0] + flotilla[i].size
         }
 
         flotilla[i].position.end[1] = positions[i].begin[1]
+
+        // convert to one number
+        flotilla[i].position.begin = positions[i].begin[0] + '' + positions[i].begin[1]
       }
     }
 
