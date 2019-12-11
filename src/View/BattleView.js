@@ -12,6 +12,7 @@ export default class BattleView {
       this._getAllShipsPositions(shipsLocations)
     )
 
+    console.log(shipsLocations)
     console.log('Ships moved to their positions!')
 
     shipsLocations ? console.log('-> Everything is prepeared! Fiiiiiire!!!') : console.log('Something went wrong')

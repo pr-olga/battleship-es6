@@ -16,17 +16,21 @@ export default class GenerateShipLocationService {
     // assign begin and end positions
     for (let i = 0; i <= flotilla.length; i++) {
       for (const position in flotilla[i]) {
-        flotilla[i].position = positions[i]
-        flotilla[i].position.end[0] = positions[i].begin[0] - flotilla[i].size
+        if (position === '_position') {
+          const posBeginFirst = positions[i].begin[0]
+          const posBeginSesond = positions[i].begin[1]
 
-        if (flotilla[i].position.end[0] < 1) {
-          flotilla[i].position.end[0] = positions[i].begin[0] + flotilla[i].size
+          flotilla[i].position = positions[i]
+          flotilla[i].position.end[0] = posBeginFirst - flotilla[i].size
+
+          if (flotilla[i].position.end[0] < 1) {
+            flotilla[i].position.end[0] = posBeginFirst + flotilla[i].size
+          }
+
+          // convert to one number
+          flotilla[i].position.begin = '' + posBeginFirst + posBeginSesond
+          flotilla[i].position.end = '' + flotilla[i].position.end[0] + posBeginSesond
         }
-
-        flotilla[i].position.end[1] = positions[i].begin[1]
-
-        // convert to one number
-        flotilla[i].position.begin = positions[i].begin[0] + '' + positions[i].begin[1]
       }
     }
 
