@@ -58,8 +58,33 @@ export default class BattleView {
     Array.from(viewFieldElements).forEach(element => {
       const cell = element.getAttribute('data-gps')
       arrPos.forEach(pos => {
-        if (pos.includes(cell)) {
-          element.classList.add('ship')
+        const arrLength = pos.length
+        switch (arrLength) {
+          case 4:
+            if (pos.includes(cell)) {
+              element.classList.add('ship--battleship')
+            }
+            break
+          case 3:
+            if (pos.includes(cell)) {
+              element.classList.add('ship--cruiser')
+            }
+            break
+          case 2:
+            if (pos.includes(cell)) {
+              element.classList.add('ship--destroyer')
+            }
+            break
+          case 1:
+            if (pos.includes(cell)) {
+              element.classList.add('ship--submarine')
+            }
+            break
+          default:
+            if (pos.includes(cell)) {
+              element.classList.add('ship')
+            }
+            break
         }
       })
     })

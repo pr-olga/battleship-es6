@@ -31,4 +31,20 @@ body {
 
 .ship {
   background-color: $beige;
+
+  &--battleship {
+    background-color: $red-primary;
+  }
+
+  &--cruiser {
+    background-color: $red-secondary;
+  }
+
+  &--destroyer {
+    background-color: $beige;
+  }
+
+  &--submarine {
+    background-color: $green;
+  }
 }
