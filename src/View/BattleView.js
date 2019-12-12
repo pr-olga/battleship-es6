@@ -6,6 +6,7 @@ export default class BattleView {
   initLoad () {
     const setLocations = new GenerateLocations()
     const shipsLocations = setLocations.positionShips()
+    console.log(shipsLocations)
 
     this._markPositionsOnField(
       this._getAllFieldCells(),

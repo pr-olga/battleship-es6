@@ -20,7 +20,6 @@ export default class Positions {
 
     this.positions = this._combineTwoArraysToObject(columns, rows)
 
-    console.log(this.positions)
     console.log('Positions are planned!')
     return this.positions
   }
