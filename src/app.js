@@ -1,8 +1,8 @@
 'use strict'
 
 import BattleView from './View/BattleView'
-import CountGamerGuesses from './Services/CountGamerGuesses'
+import Battle from './Controller/Battle'
 require('./assets/sass/style.scss')
 
 window.onload = new BattleView().initLoad()
-new CountGamerGuesses().setGuessesToGamer()
+new Battle().onGamerClick()
