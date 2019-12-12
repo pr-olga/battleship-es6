@@ -1,6 +1,6 @@
 'use strict'
 
-export default class Field {
+export default class Positions {
   constructor () {
     this.amountOfShips = 10
     this.row = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -20,6 +20,7 @@ export default class Field {
 
     this.positions = this._combineTwoArraysToObject(columns, rows)
 
+    console.log(this.positions)
     console.log('Positions are planned!')
     return this.positions
   }

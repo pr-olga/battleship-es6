@@ -1,7 +1,7 @@
 'use strict'
 
 import ShipFactory from '../Model/Ship/ShipFactory'
-import Field from '../Model/Field/Field'
+import Positions from '../Model/Positions/Positions'
 
 export default class GenerateShipLocationService {
   constructor () {
@@ -50,7 +50,7 @@ export default class GenerateShipLocationService {
   }
 
   _generatePositions () {
-    return new Field().generatePositions()
+    return new Positions().generatePositions()
   }
 
   _instantiateShips () {
