@@ -12,7 +12,6 @@ export default class BattleView {
       this._getAllShipsPositions(shipsLocations)
     )
 
-    console.log(shipsLocations)
     console.log('Ships moved to their positions!')
 
     shipsLocations ? console.log('-> Everything is prepeared! Fiiiiiire!!!') : console.log('Something went wrong')
@@ -40,7 +39,7 @@ export default class BattleView {
     for (let i = 0; i <= shipsLocations.length; i++) {
       for (const prop in shipsLocations[i]) {
         if (prop === '_position') {
-          arrPos.push(shipsLocations[i].position.begin)
+          arrPos.push(shipsLocations[i].position.arrAll)
         }
       }
     }
@@ -58,9 +57,11 @@ export default class BattleView {
   _markPositionsOnField (viewFieldElements, arrPos) {
     Array.from(viewFieldElements).forEach(element => {
       const cell = element.getAttribute('data-gps')
-      if (arrPos.includes(cell)) {
-        element.classList.add('ship')
-      }
+      arrPos.forEach(pos => {
+        if (pos.includes(cell)) {
+          element.classList.add('ship')
+        }
+      })
     })
   }
 }
