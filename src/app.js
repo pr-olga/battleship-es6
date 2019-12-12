@@ -1,8 +1,7 @@
 'use strict'
 
-import BattleView from './View/BattleView'
 import Battle from './Controller/Battle'
 require('./assets/sass/style.scss')
 
-window.onload = new BattleView().initLoad()
+window.onload = new Battle().onInit()
 new Battle().onGamerClick()

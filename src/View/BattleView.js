@@ -1,11 +1,7 @@
 'use strict'
 
-import GenerateLocations from '../Services/GenerateShipLocationsService'
-
 export default class BattleView {
-  initLoad () {
-    const setLocations = new GenerateLocations()
-    const shipsLocations = setLocations.positionShips()
+  initLoad (shipsLocations) {
     console.log(shipsLocations)
 
     this._markPositionsOnField(
@@ -16,6 +12,11 @@ export default class BattleView {
     console.log('Ships moved to their positions!')
 
     shipsLocations ? console.log('-> Everything is prepeared! Fiiiiiire!!!') : console.log('Something went wrong')
+  }
+
+  markCellAfterClick (shipsLocations) {
+    const currentFields = this._getAllShipsPositions(shipsLocations)
+    console.log(currentFields)
   }
 
   /**
