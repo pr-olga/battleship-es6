@@ -18,6 +18,40 @@ export default class BattleView {
   }
 
   /**
+   * Visualize positions on field
+   *
+   * @param {Array} viewFieldElements
+   * @param {Array} arrPos
+   * @memberof BattleView
+   */
+  _markPositionsOnField (viewFieldElements, arrPos) {
+    Array.from(viewFieldElements).forEach(element => {
+      const cell = element.getAttribute('data-gps')
+
+      arrPos.forEach(pos => {
+        const arrLength = pos.length
+        switch (arrLength) {
+          case 4:
+            this._addCssClass(pos, cell, element, 'ship--battleship')
+            break
+          case 3:
+            this._addCssClass(pos, cell, element, 'ship--cruiser')
+            break
+          case 2:
+            this._addCssClass(pos, cell, element, 'ship--destroyer')
+            break
+          case 1:
+            this._addCssClass(pos, cell, element, 'ship--submarine')
+            break
+          default:
+            this._addCssClass(pos, cell, element, 'ship')
+            break
+        }
+      })
+    })
+  }
+
+  /**
    * Get all cells of Table
    *
    * @returns
@@ -48,45 +82,18 @@ export default class BattleView {
   }
 
   /**
-   * Visualize positions on field
+   * Add a css class to a certain html-element
    *
-   * @param {Array} viewFieldElements
-   * @param {Array} arrPos
+   * @param {Array} pos
+   * @param {Array} cell
+   * @param {String} el
+   * @param {String} cls
+   * @returns
    * @memberof BattleView
    */
-  _markPositionsOnField (viewFieldElements, arrPos) {
-    Array.from(viewFieldElements).forEach(element => {
-      const cell = element.getAttribute('data-gps')
-      arrPos.forEach(pos => {
-        const arrLength = pos.length
-        switch (arrLength) {
-          case 4:
-            if (pos.includes(cell)) {
-              element.classList.add('ship--battleship')
-            }
-            break
-          case 3:
-            if (pos.includes(cell)) {
-              element.classList.add('ship--cruiser')
-            }
-            break
-          case 2:
-            if (pos.includes(cell)) {
-              element.classList.add('ship--destroyer')
-            }
-            break
-          case 1:
-            if (pos.includes(cell)) {
-              element.classList.add('ship--submarine')
-            }
-            break
-          default:
-            if (pos.includes(cell)) {
-              element.classList.add('ship')
-            }
-            break
-        }
-      })
-    })
+  _addCssClass (pos, cell, el, cls) {
+    if (pos.includes(cell)) {
+      return el.classList.add(cls)
+    }
   }
 }
