@@ -1,12 +1,12 @@
 'use strict'
 
 export default class BattleView {
-  initLoad (shipsLocations) {
-    console.log(shipsLocations)
+  initLoad (shipsLocations, getAllShipsPositions) {
+    // console.log(shipsLocations)
 
     this._markPositionsOnField(
       this._getAllFieldCells(),
-      this._getAllShipsPositions(shipsLocations)
+      getAllShipsPositions
     )
 
     console.log('Ships moved to their positions!')
@@ -14,9 +14,18 @@ export default class BattleView {
     shipsLocations ? console.log('-> Everything is prepeared! Fiiiiiire!!!') : console.log('Something went wrong')
   }
 
-  markCellAfterClick (shipsLocations) {
-    const currentFields = this._getAllShipsPositions(shipsLocations)
-    console.log(currentFields)
+  // TODO: fix marking on small ships
+  markCellAfterClick (el, getAllShipsPositions) {
+    const element = el.getAttribute('data-gps')
+    const currentFields = getAllShipsPositions
+    for (const field of currentFields) {
+      if (field.includes(element)) {
+        el.classList.add('hit')
+        break
+      } else {
+        el.classList.add('miss')
+      }
+    }
   }
 
   /**
@@ -61,26 +70,6 @@ export default class BattleView {
    */
   _getAllFieldCells () {
     return document.getElementsByClassName('battle-field__field')
-  }
-
-  /**
-   * Get all current positions of ships
-   *
-   * @param {Array} shipsLocations
-   * @returns
-   * @memberof BattleView
-   */
-  _getAllShipsPositions (shipsLocations) {
-    const arrPos = []
-    for (let i = 0; i <= shipsLocations.length; i++) {
-      for (const prop in shipsLocations[i]) {
-        if (prop === '_position') {
-          arrPos.push(shipsLocations[i].position.arrAll)
-        }
-      }
-    }
-
-    return arrPos
   }
 
   /**

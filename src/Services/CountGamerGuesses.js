@@ -8,7 +8,6 @@ export default class CountGamerGuesses {
   }
 
   setGuessesToGamer (element) {
-    this.gamer.guess.push(element.getAttribute('data-gps'))
-    console.log(this.gamer.guess)
+    this.gamer.guess.push(element)
   }
 }
