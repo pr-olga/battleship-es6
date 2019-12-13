@@ -14,17 +14,21 @@ export default class BattleView {
     shipsLocations ? console.log('-> Everything is prepeared! Fiiiiiire!!!') : console.log('Something went wrong')
   }
 
-  // TODO: fix marking on small ships
   markCellAfterClick (el, getAllShipsPositions) {
     const element = el.getAttribute('data-gps')
     const currentFields = getAllShipsPositions
+    let miss = true
+
     for (const field of currentFields) {
       if (field.includes(element)) {
         el.classList.add('hit')
+        miss = false
         break
-      } else {
-        el.classList.add('miss')
       }
+    }
+
+    if (miss) {
+      el.classList.add('miss')
     }
   }
 
