@@ -6,6 +6,7 @@ export default class Ship {
     this._amount = 0
     this._size = 0
     this._position = []
+    this._hits = []
   }
 
   get name () {
@@ -38,6 +39,14 @@ export default class Ship {
 
   set position (newPosition) {
     this._position = newPosition
+  }
+
+  get hits () {
+    return this._hits
+  }
+
+  set hits (newHit) {
+    this._hits = newHit
   }
 
   createShip () {
