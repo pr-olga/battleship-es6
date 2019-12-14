@@ -8,12 +8,13 @@ export default class Battle {
   constructor () {
     this.cells = this._getAllFieldCells()
     this.counter = new CountGamerGuesses()
-    this.setLocations = new GenerateLocations().positionShips()
+    this.setLocations = new GenerateLocations()
+    this.pos = this.setLocations.positionShips()
     this.view = new BattleView()
   }
 
   onInit () {
-    this.view.initLoad(this.setLocations, this._getAllShipsPositions(this.setLocations))
+    this.view.initLoad(this.setLocations, this._getAllShipsPositions(this.pos))
 
     Array.from(this.cells).forEach(element => {
       element.addEventListener('click',
@@ -21,8 +22,10 @@ export default class Battle {
           const el = element.getAttribute('data-gps')
           // add click to gamer guesses
           this.counter.setGuessesToGamer(el)
+          // add to the ship props
+          this.setLocations.setHits(el)
           // mark on the field
-          this.view.markCellAfterClick(element, this._getAllShipsPositions(this.setLocations))
+          this.view.markCellAfterClick(element, this._getAllShipsPositions(this.pos))
         })
     })
   }

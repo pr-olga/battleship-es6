@@ -49,6 +49,14 @@ export default class GenerateShipLocationService {
     return flotilla
   }
 
+  setHits (el) {
+    const flotilla = this.flotilla
+    const battleship = flotilla[0]
+    battleship.hits.push(el)
+    console.log(battleship.hits)
+    return console.log(flotilla)
+  }
+
   _generatePositions () {
     return new Positions().generatePositions()
   }
