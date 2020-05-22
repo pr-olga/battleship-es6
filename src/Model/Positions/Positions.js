@@ -5,7 +5,7 @@ export default class Positions {
     this.amountOfShips = 4
     this.row = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     this.col = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    this.positions = []
+    this.positions = [{'begin': [], 'end': [], 'arrAll': []}]
   }
 
   /**
@@ -59,7 +59,7 @@ export default class Positions {
 
 /**
  * Get number of beginnings acc to number of Ships
- * @param {*} arr 
+ * @param {*} arr
  */
   _getCurrentShipsAmountPositions (arr) {
     return arr.slice(0, this.amountOfShips)
