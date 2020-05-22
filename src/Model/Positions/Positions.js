@@ -2,7 +2,7 @@
 
 export default class Positions {
   constructor () {
-    this.amountOfShips = 10
+    this.amountOfShips = 4
     this.row = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     this.col = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     this.positions = []
@@ -18,9 +18,11 @@ export default class Positions {
     const columns = this._shuffle(this.row)
     const rows = this._shuffle(this.col)
 
-    this.positions = this._combineTwoArraysToObject(columns, rows)
+    const pos = this._combineTwoArraysToObject(columns, rows)
+    this.positions = this._getCurrentShipsAmountPositions(pos)
 
     console.log('Positions are planned!')
+    console.log(this.positions)
     return this.positions
   }
 
@@ -54,4 +56,12 @@ export default class Positions {
       return result
     }, [])
   }
+
+/**
+ * Get number of beginnings acc to number of Ships
+ * @param {*} arr 
+ */
+  _getCurrentShipsAmountPositions (arr) {
+    return arr.slice(0, this.amountOfShips)
+}
 }
