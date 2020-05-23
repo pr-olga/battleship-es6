@@ -5,7 +5,7 @@ export default class Ship {
     this._name = 'Ship'
     this._amount = 0
     this._size = 0
-    this._position = []
+    this._position = [{'begin': [], 'end': [], 'arrAll': []}]
     this._hits = []
   }
 
