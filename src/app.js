@@ -1,8 +1,13 @@
 'use strict'
 
 import Battle from './Controller/Battle'
-import ShipLocs from './Services/GenerateShipLocationsService'
+import { validatePositions } from './utlities/positionValidator'
 
 require('./assets/sass/style.scss')
 
-window.onload = new Battle().onInit()
+let bat = new Battle();
+window.onload = bat.onInit()
+
+if(validatePositions(bat.allPos)){
+  location.reload()
+}

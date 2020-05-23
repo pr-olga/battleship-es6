@@ -4,12 +4,13 @@ import ShipFactory from '../Model/Ship/ShipFactory'
 import Positions from '../Model/Positions/Positions'
 
 export default class GenerateShipLocationService {
-  constructor () {
+  constructor() {
     this.flotilla = this._instantiateShips()
     this.positions = this._generatePositions()
+    this.validator = []
   }
 
-  positionShips () {
+  positionShips() {
     const flotilla = this.flotilla
     const positions = this.positions
 
@@ -33,6 +34,9 @@ export default class GenerateShipLocationService {
 
           // add array of all cells
           flotilla[i].position.arrAll = []
+          // collect all arrays
+          this.validator[i] = flotilla[i].position.arrAll
+
           if (posBeginFirst - flotilla[i].size + 1 > 1) {
             for (let k = 0; k < flotilla[i].size; k++) {
               flotilla[i].position.arrAll.push('' + (posBeginFirst - k) + posBeginSesond)
@@ -49,7 +53,7 @@ export default class GenerateShipLocationService {
     return flotilla
   }
 
-  setHits (el) {
+  setHits(el) {
     const flotilla = this.flotilla
     const battleship = flotilla[0]
     battleship.hits.push(el)
@@ -57,11 +61,11 @@ export default class GenerateShipLocationService {
     return console.log(flotilla)
   }
 
-  _generatePositions () {
+  _generatePositions() {
     return new Positions().generatePositions()
   }
 
-  _instantiateShips () {
+  _instantiateShips() {
     const factory = new ShipFactory()
     const battleship = factory.createShips('Battleship')
     const cruiser = factory.createShips('Cruiser')

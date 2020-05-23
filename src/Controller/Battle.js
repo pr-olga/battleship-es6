@@ -10,6 +10,7 @@ export default class Battle {
     this.counter = new CountGamerGuesses()
     this.setLocations = new GenerateLocations()
     this.pos = this.setLocations.positionShips()
+    this.allPos = this.setLocations.validator
     this.view = new BattleView()
   }
 
