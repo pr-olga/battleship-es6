@@ -5,9 +5,9 @@ import { validatePositions } from './utlities/positionValidator'
 
 require('./assets/sass/style.scss')
 
-let bat = new Battle();
+const bat = new Battle()
 window.onload = bat.onInit()
 
-if(validatePositions(bat.allPos)){
+if (validatePositions(bat.allPos)) {
   location.reload()
 }
