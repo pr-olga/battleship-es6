@@ -9,7 +9,7 @@ export default class Battle {
     this.cells = this._getAllFieldCells()
     this.counter = new CountGamerGuesses()
     this.setLocations = new GenerateLocations()
-    this.pos = this.setLocations.positionShips()
+    this.pos = this.setLocations.setShipsToPositions()
     this.allPos = this.setLocations.validator
     this.view = new BattleView()
   }
@@ -43,15 +43,6 @@ export default class Battle {
    * @memberof BattleView
    */
   _getAllShipsPositions (shipsLocations) {
-    const arrPos = []
-    for (let i = 0; i <= shipsLocations.length; i++) {
-      for (const prop in shipsLocations[i]) {
-        if (prop === '_position') {
-          arrPos.push(shipsLocations[i].position.arrAll)
-        }
-      }
-    }
-
-    return arrPos
+    return shipsLocations.map(i => i._position.arrAll)
   }
 }

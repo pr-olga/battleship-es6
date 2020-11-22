@@ -4,13 +4,13 @@ import ShipFactory from '../Model/Ship/ShipFactory'
 import Positions from '../Model/Positions/Positions'
 
 export default class GenerateShipLocationService {
-  constructor() {
+  constructor () {
     this.flotilla = this._instantiateShips()
     this.positions = this._generatePositions()
     this.validator = []
   }
 
-  positionShips() {
+  setShipsToPositions () {
     const flotilla = this.flotilla
     const positions = this.positions
 
@@ -53,7 +53,7 @@ export default class GenerateShipLocationService {
     return flotilla
   }
 
-  setHits(el) {
+  setHits (el) {
     const flotilla = this.flotilla
     const battleship = flotilla[0]
     battleship.hits.push(el)

@@ -7,23 +7,17 @@
  * @param {*} arr
  * @returns
  */
-export function validatePositions(arr) {
-    const pattern = [1, -1, 9, -9, 11, -11]
-    let arrayConcat = []
+export function validatePositions (arr) {
+  const pattern = [1, -1, 9, -9, 11, -11]
+  let arrayConcat = []
+  let shufflePositions = false
 
-    arr.forEach(function (a) {
-      arrayConcat = arrayConcat.concat(a)
-    })
-
-    for (let i = 0; i < arrayConcat.length; i++) {
-      for (let k = 0; k < arrayConcat.length; k++) {
-        let res = arrayConcat[i] - arrayConcat[k]
-
-        if (pattern.includes(res)) {
-          return true
-        }
-      }
+  arr.map(a => arrayConcat = arrayConcat.concat(a))
+  arrayConcat.map((i) => arrayConcat.map((k) => {
+    if (pattern.includes(i - k)) {
+      shufflePositions = true
     }
+  }))
 
-    return
-  }
+  return shufflePositions
+}
